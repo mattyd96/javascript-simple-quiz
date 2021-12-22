@@ -18,25 +18,62 @@
             <p>Some explanation about the quiz here</p>
             <button class="btn" id="start-btn" data-value="start">Start</button>
         </article>
-        <article class="card question" id="q1">
+        <article class="card question hidden" id="q1">
             <p class="q-text">Who are You?</p>
             <div class="answers">
-                <button class="btn">answer 1</button>
-                <button class="btn">answer 2</button>
-                <button class="btn">answer 3</button>
-                <button class="btn">answer 4</button>
+                <button class="btn" data-value="1">answer 1</button>
+                <button class="btn" data-value="2">answer 2</button>
+                <button class="btn" data-value="3">answer 3</button>
+                <button class="btn" data-value="4">answer 4</button>
             </div>
             
         </article>
-        <article class="card question" id="q2">
+        <article class="card question hidden" id="q2">
             <p class="q-text">Who am I?</p>
             <div class="answers">
-                <button class="btn">answer 1</button>
-                <button class="btn">answer 2</button>
-                <button class="btn">answer 3</button>
-                <button class="btn">answer 4</button>
+                <button class="btn" data-value="1">answer 1</button>
+                <button class="btn" data-value="2">answer 2</button>
+                <button class="btn" data-value="3">answer 3</button>
+                <button class="btn" data-value="4">answer 4</button>
             </div>
         </article>
+        <article class="card question hidden" id="q3">
+            <p class="q-text">Who am I?</p>
+            <div class="answers">
+                <button class="btn" data-value="1">answer 1</button>
+                <button class="btn" data-value="2">answer 2</button>
+                <button class="btn" data-value="3">answer 3</button>
+                <button class="btn" data-value="4">answer 4</button>
+            </div>
+        </article>
+        <article class="card question hidden" id="q4">
+            <p class="q-text">Who am I?</p>
+            <div class="answers">
+                <button class="btn" data-value="1">answer 1</button>
+                <button class="btn" data-value="2">answer 2</button>
+                <button class="btn" data-value="3">answer 3</button>
+                <button class="btn" data-value="4">answer 4</button>
+            </div>
+        </article>
+        <article class="card hidden" id="register">
+            <p>All Done!</p>
+            <p>your score: <span id="score-text"></span></p>
+            <form action="POST">
+                <label for="username">Enter your Initials</label>
+                <input type="text" name="" id="username">
+                <button id="username-submit">submit</button>
+            </form>
+        </article>
+        <article class="card hidden" id="highscore">
+            <div id="scores">
+
+            </div>
+            <button id="play-again">Play Again</button>
+            <button id="clear-scores">Clear Scores</button>
+        </article>
+        <div id="feedback">
+            <p id="feedback-text"></p>
+        </div>
     </main>
 
     <script src="script.js"></script>

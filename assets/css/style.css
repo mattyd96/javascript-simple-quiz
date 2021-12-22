@@ -1,0 +1,19 @@
+:root {
+    --max-width: 65rem;
+}
+
+.hidden {
+    display: none;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    max-width: var(--max-width);
+    margin: auto;
+}
+
+main {
+    max-width: var(--max-width);
+    margin: auto;
+}
