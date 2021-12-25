@@ -5,14 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="./assets/css/style.css">
 </head>
 <body>
     <header>
-        <span>View Highscores</span>
+        <a href="index.html">Back to Quiz</a>
         <p>Time: <span id="time">0</span></p>
     </header>
     <main id="main">
-        <article class="card hidden" id="highscore">
+        <article class="card" id="highscore" onload="createHighscoreList()">
             <div id="scores">
                 <!-- This section is built in the javascript -->
             </div>
@@ -20,5 +21,7 @@
             <button id="clear-scores">Clear Scores</button>
         </article>
     </main>
+
+    <script src="highscore.js"></script>
 </body>
 </html>

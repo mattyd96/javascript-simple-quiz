@@ -12,16 +12,13 @@ let answers = { //holds which button is the correct answer foe each question
 let score = 0; //score
 let points = 10; //points awarded for a right answer
 let possibleScore = questions.length * points; //total possible score
-let remainingTime = 10; //set length of quiz
+let remainingTime = 100; //set length of quiz and track remaining time
 let penalty = 10; //penalty for getting a question wrong
 
 let timeout; //variable to hold timer interval
 
 let form = document.getElementById("main"); //main container
-
 let start = document.getElementById("start-btn"); //start quiz button
-let again = document.getElementById("play-again"); //play again button
-let clearScores = document.getElementById("clear-scores"); //clear user scores button
 let usernameSubmit = document.getElementById("username-submit"); //register score button
 
 //initial start
@@ -34,11 +31,6 @@ start.addEventListener("click", (e) => {
 
 //start the quiz -> used for both initial start and replay
 function startQuiz() {
-    //reset stats
-    score = 0;
-    remainingTime = 10;
-    qIndex = 0;
-
     //reset text in register score form
     document.getElementById("username").value = "";
 
@@ -52,6 +44,7 @@ function startQuiz() {
 //end the quiz
 function endQuiz(question) {
     //write score to page
+    score = remainingTime;
     document.getElementById("score-text").innerText = score;
     document.getElementById("possible-score-text").innerText = possibleScore;
 
@@ -62,21 +55,6 @@ function endQuiz(question) {
     //stop timer
     clearInterval(timeout);
 }
-
-//play again 
-again.addEventListener("click", (e) => {
-    e.stopPropagation();
-    showHide("highscore");
-    startQuiz();
-})
-
-//clear scores in local storage and rewrite html
-clearScores.addEventListener("click", (e) => {
-    e.stopPropagation();
-    localStorage.clear();
-    createHighscoreList();
-})
-
 
 //timer function
 function timer() {
@@ -110,8 +88,6 @@ function wrongAnswer() {
 
 //correct answer
 function correctAnswer() {
-    //increase score
-    score += points;
     //write to answer status div 
     displayFeedback("Correct!");
 }
@@ -155,17 +131,23 @@ usernameSubmit.addEventListener("click", (e) => {
     e.preventDefault();
 
     let username = document.getElementById("username").value;
+    let error = document.getElementById("error");
 
+    //if name left blank
+    if(username == "") {
+        error.innerText = "Please enter a name";
+        return;
+    }
+
+    //update highscore list and go to highscore page
     let userStats = {
         "name" : username,
         "score" : score
     }
 
     modifyHighscores(userStats);
-
-    showHide("register");
-    createHighscoreList();
-    showHide("highscore");
+    error.innerText = "";
+    window.location = "highscore.html";
 
 })
 
@@ -186,10 +168,12 @@ function modifyHighscores(userScore) {
 
     let alreadyExists = false; //bool to track if user already has a score
 
-    //if user exists change score
+    //if user exists and new score is higher, change score
     scores.forEach(element => {
         if(element.name == userScore.name) {
-            element.score = userScore.score;
+            if(element.score < userScore.score) {
+                element.score = userScore.score;
+            } 
             alreadyExists = true;
         }
     })
@@ -207,27 +191,6 @@ function modifyHighscores(userScore) {
 //sort helper function
 function highscoreSort(a, b) {
     return a.score >= b.score ? -1 : 1;
-}
-
-//create ol from local storage scores
-function createHighscoreList() {
-    let scores = JSON.parse(localStorage.getItem("scores")); //get scores from local storage
-    let scorediv = document.getElementById("scores"); //div to hold list
-
-    let list = document.createElement("ol");
-
-    if(scores == null) {
-        scorediv.innerHTML = "";
-        return;
-    }
-
-    scores.forEach(element => {
-        let item = document.createElement("li");
-        item.innerHTML = '<span id="scoreName">' + element.name + '</span> - ' + element.score;
-        list.appendChild(item);
-    });
-
-    scorediv.innerHTML = list.outerHTML;
 }
 
 

@@ -9,7 +9,7 @@
 </head>
 <body>
     <header>
-        <span>View Highscores</span>
+        <a href="highscore.html">View Highscores</a>
         <p>Time: <span id="time">0</span></p>
     </header>
     <main id="main">
@@ -55,7 +55,7 @@
                 <button class="btn" data-value="4">answer 4</button>
             </div>
         </article>
-        <article class="card" id="register">
+        <article class="card hidden" id="register">
             <h1>All Done!</h1>
             <p>your score</p>
             <span id="score-text">50</span>
@@ -66,19 +66,13 @@
                 <input type="text" name="" id="username">
                 <button id="username-submit">Submit</button>
             </form>
-        </article>
-        <article class="card hidden" id="highscore">
-            <div id="scores">
-                <!-- This section is built in the javascript -->
-            </div>
-            <button id="play-again">Play Again</button>
-            <button id="clear-scores">Clear Scores</button>
+            <p id="error"></p>
         </article>
         <div id="feedback">
             <p id="feedback-text"></p>
         </div>
     </main>
 
-    <script src="script.js"></script>
+    <script src="index.js"></script>
 </body>
 </html>
