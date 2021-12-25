@@ -10,7 +10,7 @@
 <body>
     <header>
         <span>View Highscores</span>
-        <p>Time: <span id="time"></span></p>
+        <p>Time: <span id="time">0</span></p>
     </header>
     <main id="main">
         <article class="card" id="start">
@@ -55,18 +55,21 @@
                 <button class="btn" data-value="4">answer 4</button>
             </div>
         </article>
-        <article class="card hidden" id="register">
-            <p>All Done!</p>
-            <p>your score: <span id="score-text"></span></p>
+        <article class="card" id="register">
+            <h1>All Done!</h1>
+            <p>your score</p>
+            <span id="score-text">50</span>
+            <p>Out of a possible score of <span id="possible-score-text"></span></p>
+
+            <p>Enter you initials to see how you compare with your friends!</p>
             <form action="POST">
-                <label for="username">Enter your Initials</label>
                 <input type="text" name="" id="username">
-                <button id="username-submit">submit</button>
+                <button id="username-submit">Submit</button>
             </form>
         </article>
         <article class="card hidden" id="highscore">
             <div id="scores">
-
+                <!-- This section is built in the javascript -->
             </div>
             <button id="play-again">Play Again</button>
             <button id="clear-scores">Clear Scores</button>

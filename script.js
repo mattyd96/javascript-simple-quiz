@@ -10,6 +10,8 @@ let answers = { //holds which button is the correct answer foe each question
 }
 
 let score = 0; //score
+let points = 10; //points awarded for a right answer
+let possibleScore = questions.length * points; //total possible score
 let remainingTime = 10; //set length of quiz
 let penalty = 10; //penalty for getting a question wrong
 
@@ -51,6 +53,7 @@ function startQuiz() {
 function endQuiz(question) {
     //write score to page
     document.getElementById("score-text").innerText = score;
+    document.getElementById("possible-score-text").innerText = possibleScore;
 
     //hide current question and show high score register
     showHide(question);
@@ -108,7 +111,7 @@ function wrongAnswer() {
 //correct answer
 function correctAnswer() {
     //increase score
-    score += 10;
+    score += points;
     //write to answer status div 
     displayFeedback("Correct!");
 }
