@@ -66,6 +66,9 @@ function endQuiz(question) {
 function timer() {
 
     timeout = setInterval(() => {
+        //decrement time
+        remainingTime--;
+
         //update text with time left
         document.getElementById("time").innerText = remainingTime;
         
@@ -75,8 +78,6 @@ function timer() {
             clearInterval(timeout);
         }
 
-        //decrement time
-        remainingTime--;
     }, 1000);
 
 }
