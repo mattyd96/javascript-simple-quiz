@@ -101,6 +101,13 @@ header p {
 /* starting panel */
 #start {
     text-align: center;
+    color: var(--main-text);
+    text-align: center;
+}
+
+#start p {
+    max-width: 40rem;
+    margin: auto;
 }
 
 
@@ -108,6 +115,7 @@ header p {
 #start .btn {
     width: max(20%, 10rem);
     height: 4rem;
+    margin-top: 4rem;
     background-color: var(--main-btn);
     border-radius: .4rem;
     font-family: var(--main-font);

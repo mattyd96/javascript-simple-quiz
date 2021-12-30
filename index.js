@@ -17,7 +17,7 @@ let answers = { //holds which button is the correct answer foe each question
 
 let score = 0; //score
 let points = 10; //points awarded for a right answer
-let possibleScore = questions.length * points; //total possible score
+let possibleScore = 100; //total possible score
 let remainingTime = 100; //set length of quiz and track remaining time
 let penalty = 10; //penalty for getting a question wrong
 
