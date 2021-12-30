@@ -79,6 +79,10 @@ main {
     border: none;
 }
 
+.btn:hover {
+    cursor: pointer;
+}
+
 /* header */
 header a {
     text-decoration: none;
@@ -251,6 +255,16 @@ li {
 
 #clear-scores:hover {
     background-color: var(--amaranth-red);
+}
+
+/*Feedback text */
+
+#feedback-text {
+    font-size: 2rem;
+    font-weight: 700;
+    font-style: italic;
+    color: var(--main-text);
+    text-align: center;
 }
 
 
