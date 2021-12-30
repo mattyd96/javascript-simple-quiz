@@ -4,21 +4,28 @@ let again = document.getElementById("play-again"); //play again button
 
 //create ol from local storage scores
 function createHighscoreList() {
+    console.log()
     let scores = JSON.parse(localStorage.getItem("scores")); //get scores from local storage
     let scorediv = document.getElementById("scores"); //div to hold list
 
-    let list = document.createElement("ol");
+    let list = document.createElement("ul");
 
     if(scores == null) {
         scorediv.innerHTML = "";
         return;
     }
 
-    scores.forEach(element => {
-        let item = document.createElement("li");
-        item.innerHTML = '<span id="scoreName">' + element.name + '</span> - ' + element.score;
+    for(let i = 0; i < scores.length; i++) {
+
+        let item = document.createElement("li");    
+        item.innerHTML = '<span id="scoreName">' + scores[i].name + '</span><span>' + scores[i].score + '</span>';
+
+        if(i == 0) { item.classList.add("gold") }
+        else if(i == 1) { item.classList.add("silver") }
+        else if(i == 2) {item.classList.add("bronze") }
+
         list.appendChild(item);
-    });
+    }
 
     scorediv.innerHTML = list.outerHTML;
 }

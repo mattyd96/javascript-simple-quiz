@@ -1,18 +1,63 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,500;0,600;0,700;0,900;1,600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap');
+
+/* Japanese font */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap');
 
 :root {
     --max-width: 67rem;
+
+    --cultured: hsla(140, 16%, 96%, 1);
+    --fire-opal: hsla(4, 82%, 63%, 1);
+    --space-cadet: hsla(243, 25%, 27%, 1);
+    --yellow-orange: hsla(36, 89%, 59%, 1);
+    --azure: hsla(215, 76%, 57%, 1);
+
+    --blanched-almond: hsla(35, 100%, 91%, 1);
+    --cool-grey: hsla(225, 14%, 60%, 1);
+    --independence: hsla(248, 15%, 31%, 1);
+    --maximum-yellow-red: hsla(37, 100%, 64%, 1);
+    --cinnabar: hsla(4, 88%, 58%, 1);
+
+    --amaranth-red: hsla(354, 70%, 50%, 1);
+    --isabelline: hsla(26, 47%, 97%, 1);
+    --rhythm: hsla(238, 12%, 55%, 1);
+    --xiketic: hsla(242, 94%, 7%, 1);
+    --space-cadet: hsla(233, 24%, 19%, 1);
+    --eerie-black: hsla(180, 5%, 8%, 1);
+    --french-raspberry: hsla(355, 52%, 48%, 1);
+
+    --bronze: hsla(31, 49%, 48%, 1);
+    --silver: hsla(255, 2%, 67%, 1);
+    --gold: hsla(46, 81%, 52%, 1);
+
+    --rich-black-fogra-29: hsla(204, 86%, 6%, 1);
+    --lavender-floral: hsla(265, 57%, 69%, 1);
+    --lavender-faded: hsla(265, 57%, 69%, .7);
+    --imperial-red: hsla(353, 86%, 54%, 1);
+
+    --main-bg: var(--rich-black-fogra-29);
+    --main-btn: var(--lavender-faded);
+    --main-btn-hover: var(--lavender-floral);
+    --main-text: var(--isabelline);
+    --time-text: var(--isabelline);
+
+    --question-btn: var(--lavender-floral);
+
+    --main-font: 'Ubuntu', sans-serif;
 }
 
 body {
-    font-family: 'Montserrat', sans-serif;
+    font-family: var(--main-font);
+    background-color: var(--main-bg);
 }
 
 
 
 h1{
+    font-family:  var(--main-font);
+    color: var(--main-text);
     font-size: 2rem;
-    font-weight: 900;
+    font-weight: 700;
 }
 
 header {
@@ -30,6 +75,24 @@ main {
     padding: 2rem;
 }
 
+.btn {
+    border: none;
+}
+
+/* header */
+header a {
+    text-decoration: none;
+    color: var(--main-text);
+    font-family: var(--main-font);
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+header p {
+    color: var(--time-text);
+}
+
+
 /* starting panel */
 #start {
     text-align: center;
@@ -38,7 +101,21 @@ main {
 
 
 #start .btn {
-    width: 30%;
+    width: max(20%, 10rem);
+    height: 4rem;
+    background-color: var(--main-btn);
+    border-radius: .4rem;
+    font-family: var(--main-font);
+    font-weight: 900;
+    font-style: italic;
+    font-size: 2rem;
+    letter-spacing: .15rem;
+    color: var(--cultured);
+}
+
+#start .btn:hover {
+    background-color: var(--main-btn-hover);
+    color: var(--isabelline);
 }
 
 /* question panels */
@@ -47,6 +124,7 @@ main {
     font-size: 1.5rem;
     font-weight: 600;
     text-align: center;
+    color: var(--main-text);
 }
 
 .answers {
@@ -58,12 +136,19 @@ main {
 .answers .btn {
     font-size: 1rem;
     padding: 1rem;
+    background-color: var(--question-btn);
+    border-radius: .5rem;
+}
+
+.answers .btn:hover {
+    background-color: var(--lavender-faded);
 }
 
 /* user score register panel */
 
 #register {
     text-align: center;
+    color: var(--main-text)
 }
 
 #register p {
@@ -75,6 +160,87 @@ main {
     font-size: 6rem;
     font-weight: 800;
 }
+
+form {
+    font-size: 1.2rem;
+}
+
+#username {
+    padding: .5rem;
+    border: none;
+    border-radius: .25rem;
+}
+
+#username-submit {
+    padding: .5rem 2rem;
+    border: none;
+    border-radius: .25rem;
+    background-color: var(--main-btn);
+    color: var(--main-text);
+}
+
+#username-submit:hover {
+    background-color: var(--main-btn-hover);
+}
+
+/* Highscore list */
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+
+li {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: .5rem;
+    font-size: 1.2rem;
+    font-weight: 700;
+    padding: .5rem;
+    border-radius: .25rem;
+    background-color: var(--main-btn);
+}
+
+.gold {
+    background-color: var(--gold);
+}
+
+.silver {
+    background-color: var(--silver);
+}
+
+.bronze {
+    background-color: var(--bronze);
+}
+
+#highscore button {
+    border: none;
+    border-radius: .25rem;
+    margin: 2rem 1rem 0 0;
+    padding: .5rem;
+    font-size: 1.3rem;
+}
+
+#play-again {
+    background-color: var(--main-btn);
+    color: var(--isabelline);
+}
+
+#play-again:hover {
+    background-color: var(--main-btn-hover);
+}
+
+#clear-scores {
+    background-color: var(--french-raspberry);
+    color: var(--isabelline);
+}
+
+#clear-scores:hover {
+    background-color: var(--amaranth-red);
+}
+
+
 
 /* javascript functionality classes */
 .hidden {
