@@ -1,12 +1,18 @@
 //global variables
 
-let questions = ["q1", "q2", "q3", "q4"]; //holds each question div id
+let questions = ["q1", "q2", "q3", "q4", "q5", "q6", "q7", "q8", "q9", "q10"]; //holds each question div id
 let qIndex = 0; //tracks which question is visible on page
 let answers = { //holds which button is the correct answer foe each question
     "q1" : "1",
     "q2" : "1",
-    "q3" : "1",
-    "q4" : "1"
+    "q3" : "3",
+    "q4" : "2",
+    "q5" : "4",
+    "q6" : "2",
+    "q7" : "3",
+    "q8" : "4",
+    "q9" : "1",
+    "q10": "2"
 }
 
 let score = 0; //score
