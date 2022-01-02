@@ -24,6 +24,7 @@ let remainingTime = 100; //set length of quiz and track remaining time
 let penalty = 10; //penalty for getting a question wrong
 
 let timeout; //variable to hold timer interval
+let displayOut; //variable to hold timeout for user feedback text
 
 let form = document.getElementById("main"); //main container
 let start = document.getElementById("start-btn"); //start quiz button
@@ -104,6 +105,7 @@ function correctAnswer() {
 
 //displays text to let user know whether they got the previous answer right
 function displayFeedback(text) {
+    clearTimeout(displayOut);
     document.getElementById("feedback-text").innerText = text;
 
     setTimeout(() => {
