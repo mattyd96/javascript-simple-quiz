@@ -18,7 +18,7 @@ function createHighscoreList() {
     for(let i = 0; i < scores.length; i++) {
 
         let item = document.createElement("li");    
-        item.innerHTML = '<span id="scoreName">' + scores[i].name + '</span><span>' + scores[i].score + '</span>';
+        item.innerHTML = '<span id="scoreName">' + (i+1) + '. ' + scores[i].name + '</span><span>' + scores[i].score + '</span>';
 
         if(i == 0) { item.classList.add("gold") }
         else if(i == 1) { item.classList.add("silver") }

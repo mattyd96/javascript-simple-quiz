@@ -30,7 +30,7 @@ THEN I can save my initials and my score
 
 ## Screenshot
 
-![The Password Generator application displays a red button to "Generate Password".](./Assets/Screenshot.png)
+![Quiz Demo GIF](./assets/demo_images/demo.gif)
 
 ## Notes
 
