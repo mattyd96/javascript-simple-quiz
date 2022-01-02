@@ -2,6 +2,16 @@
 
 A simple Javascript Quiz written for a bootcamp assignment. It has a user answer questions within a time limit where a wrong answer results in a time penalty. Upon time running out or finishing all the questions, the user can then store their score and view a highscore page to compare with other users. The current implementation runs only using local storage on the browser.
 
+<br/>
+
+The quiz questions are for Korean vocabulary, a recent hobby I have picked up. For testing purposes the answers are 
+
+<details>
+<summary> Answers </summary>
+1,  1,  3,  2,  4,  2,  3,  4,  1,  2
+</details>
+
+<br/>
 ## User Story
 
 ```
