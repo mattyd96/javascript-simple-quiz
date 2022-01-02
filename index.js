@@ -16,16 +16,15 @@ let answers = { //holds which button is the correct answer foe each question
 }
 
 let score = 0; //score
-let points = 10; //points awarded for a right answer
-let possibleScore = 100; //total possible score
+const possibleScore = 100; //total possible score
 let remainingTime = 100; //set length of quiz and track remaining time
-let penalty = 10; //penalty for getting a question wrong
+const penalty = 10; //penalty for getting a question wrong
 
 let timeout; //variable to hold timer interval
 
-let form = document.getElementById("main"); //main container
-let start = document.getElementById("start-btn"); //start quiz button
-let usernameSubmit = document.getElementById("username-submit"); //register score button
+const form = document.getElementById("main"); //main container
+const start = document.getElementById("start-btn"); //start quiz button
+const usernameSubmit = document.getElementById("username-submit"); //register score button
 
 //initial start
 start.addEventListener("click", (e) => {

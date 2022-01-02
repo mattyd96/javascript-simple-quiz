@@ -13,6 +13,8 @@
         <p>Time: <span id="time">0</span></p>
     </header>
     <main id="main">
+        
+        <!-- starting page -->
         <article class="card" id="start">
             <h1>Korean Language Quiz</h1>
             <p>
@@ -22,6 +24,8 @@
             </p>
             <button class="btn" id="start-btn" data-value="start">Start</button>
         </article>
+
+        <!-- question 1 -->
         <article class="card question hidden" id="q1">
             <p class="q-text">가볍다</p>
             <div class="answers">
@@ -32,6 +36,8 @@
             </div>
             
         </article>
+
+        <!-- question 2 -->
         <article class="card question hidden" id="q2">
             <p class="q-text">고양이</p>
             <div class="answers">
@@ -41,6 +47,8 @@
                 <button class="btn" data-value="4">Bird</button>
             </div>
         </article>
+
+        <!-- question 3 -->
         <article class="card question hidden" id="q3">
             <p class="q-text">고향</p>
             <div class="answers">
@@ -50,6 +58,8 @@
                 <button class="btn" data-value="4">Park</button>
             </div>
         </article>
+
+        <!-- question 4 -->
         <article class="card question hidden" id="q4">
             <p class="q-text">근처</p>
             <div class="answers">
@@ -59,6 +69,8 @@
                 <button class="btn" data-value="4">Behind</button>
             </div>
         </article>
+
+        <!-- question 5 -->
         <article class="card question hidden" id="q5">
             <p class="q-text">빨갛다</p>
             <div class="answers">
@@ -68,6 +80,8 @@
                 <button class="btn" data-value="4">To be red</button>
             </div>
         </article>
+
+        <!-- question 6 -->
         <article class="card question hidden" id="q6">
             <p class="q-text">어리다</p>
             <div class="answers">
@@ -77,6 +91,8 @@
                 <button class="btn" data-value="4">To be anxious</button>
             </div>
         </article>
+
+        <!-- question 7 -->
         <article class="card question hidden" id="q7">
             <p class="q-text">떠나다</p>
             <div class="answers">
@@ -86,6 +102,8 @@
                 <button class="btn" data-value="4">to Arrive</button>
             </div>
         </article>
+
+        <!-- question 8 -->
         <article class="card question hidden" id="q8">
             <p class="q-text">내려오다</p>
             <div class="answers">
@@ -95,6 +113,8 @@
                 <button class="btn" data-value="4">to get off</button>
             </div>
         </article>
+
+        <!-- question 9 -->
         <article class="card question hidden" id="q9">
             <p class="q-text">나라</p>
             <div class="answers">
@@ -104,6 +124,8 @@
                 <button class="btn" data-value="4">City</button>
             </div>
         </article>
+
+        <!-- question 10 -->
         <article class="card question hidden" id="q10">
             <p class="q-text">야구</p>
             <div class="answers">
@@ -113,24 +135,35 @@
                 <button class="btn" data-value="4">Cricket</button>
             </div>
         </article>
+
+        <!-- registration form-->
         <article class="card hidden" id="register">
             <h1>All Done!</h1>
             <p>your score</p>
-            <span id="score-text">50</span>
+
+            <!-- text content added in Javascript -->
+            <span id="score-text"></span>
             <p>Out of a possible score of <span id="possible-score-text"></span></p>
 
             <p>Enter you initials to see how you compare with your friends!</p>
+
+            <!-- input form -->
             <form action="POST">
                 <input type="text" name="" id="username">
                 <button id="username-submit">Submit</button>
             </form>
+
+            <!-- shows error message if user doesn't input a name -->
             <p id="error"></p>
         </article>
+
+        <!-- feedback for each answer user chooses -->
         <div id="feedback">
             <p id="feedback-text"></p>
         </div>
     </main>
 
+    <!-- script -->
     <script src="index.js"></script>
 </body>
 </html>

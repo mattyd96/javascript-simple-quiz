@@ -38,18 +38,16 @@ THEN I can save my initials and my score
 
 </br>
 
-For this implementation I have all the questions already written in the html file. They are then
+For the implementation on the main branch, I have all the questions already written in the html file. They are then
 all hidden at the start and progressively hidden and displayed as the user clicks on the answer buttons.
 
 </br>
   
-Another implementation I would like to try is to just make each question in the Javascript and then change
-the HTML content directly for each question. I believe this would allow for easier editing on the backend as far as modifying questions. This would work well for when the question data was stored in a database as 
-opposed to sitting in the Front-end Javascript itself.
+Another implementation I did in the js_insert branch, creates each question in javascript then replaces the content on the page. I am not to sure of the performance difference between the two at the moment, but as far as I can tell they both have a similar number DOM calls, so it should be fairly similar performance.
 
 </br>
 
-I think both work well for this project and meeting the requirements. However I'm not sure if either implementation significantly effects performance. 
+I think both work well for this project and meeting the requirements, so I have left both there for reference. The published page is running off of the main branch. The advantage of the js_insert method is the ease of modification. All the questions are stored in an array mimicking a database of sorts. Modifying the quiz only requires changes to that array whereas the method in main requires changes to the html and two variables in the Javascript.
 
 ## Links
 
