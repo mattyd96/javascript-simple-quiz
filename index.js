@@ -1,19 +1,21 @@
 //global variables
 
-let questions = ["q1", "q2", "q3", "q4", "q5", "q6", "q7", "q8", "q9", "q10"]; //holds each question div id
+//array to hold question content
+//[ question number, answer, question text, answer option 1 ... 4]
+const questions = [
+    ["1", 1, "가볍다", "to be light", "to be heavy", "to be complicated", "to be simple"],
+    ["2", 1, "고양이", "Cat", "Dog", "Baby", "Bird"],
+    ["3", 3, "고향", "City", "Apartement", "Hometown", "Park"],
+    ["4", 2, "근처", "Far away", "Near by", "to the side", "Behind"],
+    ["5", 4, "빨갛다", "To be green", "To be white", "To be blue", "To be red"],
+    ["6", 2, "어리다", "To be Old", "To be young", "To be oblivious", "To be anxious"],
+    ["7", 3, "떠나다", "to move", "to travel", "to depart", "to Arrive"],
+    ["8", 4, "내려오다", "to get on", "to ride", "to depart", "to get off"],
+    ["9", 1, "나라", "Nation", "State", "County", "City"],
+    ["10", 2, "야구", "Soccer", "Baseball", "Badminton", "Cricket"],
+]
+
 let qIndex = 0; //tracks which question is visible on page
-let answers = { //holds which button is the correct answer foe each question
-    "q1" : "1",
-    "q2" : "1",
-    "q3" : "3",
-    "q4" : "2",
-    "q5" : "4",
-    "q6" : "2",
-    "q7" : "3",
-    "q8" : "4",
-    "q9" : "1",
-    "q10": "2"
-}
 
 let score = 0; //score
 let points = 10; //points awarded for a right answer
@@ -41,21 +43,22 @@ function startQuiz() {
     document.getElementById("username").value = "";
 
     //show first question
-    showHide("q1");
+    showHide("questions");
+    createQuestion(questions[0]);
 
     //start timer
     timer();
 }
 
 //end the quiz
-function endQuiz(question) {
+function endQuiz() {
     //write score to page
     score = remainingTime;
     document.getElementById("score-text").innerText = score;
     document.getElementById("possible-score-text").innerText = possibleScore;
 
     //hide current question and show high score register
-    showHide(question);
+    showHide("questions");
     showHide("register");
 
     //stop timer
@@ -115,21 +118,55 @@ form.addEventListener("click", (e) => {
 
     if(answer.tagName == "BUTTON") {
         //get id of question and check whether the answer was correct
-        let q = answer.parentNode.parentNode.id;
-        answer.dataset.value == answers[q] ? correctAnswer() : wrongAnswer();
+        let q = parseInt(answer.parentNode.parentNode.id);
+        console.log(typeof(q));
+        answer.dataset.value == questions[q-1][1] ? correctAnswer() : wrongAnswer();
 
         //end quiz if that was the last question
         if(qIndex == questions.length - 1) {
-            endQuiz(questions[qIndex]);
+            endQuiz();
         } else {
             //move to next question
-            showHide(questions[qIndex]);
             qIndex++;
-            showHide(questions[qIndex]);
+            createQuestion(questions[qIndex]);
         }
   
     }
 })
+
+//----------------------- question builder --------------------------- //
+
+function createQuestion(question) {
+    //create container
+    let article = document.createElement('article');
+    article.classList.add('card', 'question');
+    article.setAttribute('id', question[0]);
+
+    //create question text
+    let para = document.createElement('p');
+    para.classList.add('q-text');
+    para.innerText = question[2];
+
+    //create answer div and append option buttons
+    let div = document.createElement('div');
+    div.classList.add("answers");
+    for(let i = 0; i < 4; i++) {
+        let button = document.createElement('button');
+        button.classList.add('btn');
+        button.setAttribute('data-value', i+1);
+        button.innerText = question[i+3];
+        div.append(button);
+    }
+
+    //add question text and answers to container
+    article.append(para);
+    article.append(div);
+
+    //replace content with newly created question article
+    let container = document.getElementById("questions");
+    container.innerHTML = "";
+    container.append(article);
+}
 
 //user scores --------------------------------------------------------- //
 //listener for score submission 
@@ -206,3 +243,6 @@ function highscoreSort(a, b) {
 function showHide(element) {
     document.getElementById(element).classList.toggle("hidden");
 }
+
+
+
