@@ -1,4 +1,4 @@
-# Simple Javascript Quiz
+# Simple Javascript Quiz [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 A simple Javascript Quiz written for a bootcamp assignment. It has a user answer questions within a time limit where a wrong answer results in a time penalty. Upon time running out or finishing all the questions, the user can then store their score and view a highscore page to compare with other users. The current implementation runs only using local storage on the browser.
 
@@ -58,6 +58,10 @@ Another implementation I did in the js_insert branch, creates each question in j
 </br>
 
 I think both work well for this project and meeting the requirements, so I have left both there for reference. The published page is running off of the main branch. The advantage of the js_insert method is the ease of modification. All the questions are stored in an array mimicking a database of sorts. Modifying the quiz only requires changes to that array whereas the method in main requires changes to the html and two variables in the Javascript.
+
+## License
+
+MIT
 
 ## Links
 
